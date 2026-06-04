@@ -17,12 +17,22 @@ $(document).ready(function(){
 5. welcome animation support
 ======================================*/
 
-    // 1. Scroll To Top 
+    // 1. Scroll To Top + Navbar glassmorphism
 		$(window).on('scroll',function () {
-			if ($(this).scrollTop() > 600) {
+			var st = $(this).scrollTop();
+
+			/* return-to-top */
+			if (st > 600) {
 				$('.return-to-top').fadeIn();
 			} else {
 				$('.return-to-top').fadeOut();
+			}
+
+			/* navbar pill + glassmorphism */
+			if (st > 50) {
+				$('nav.navbar.bootsnav').addClass('navbar-scrolled');
+			} else {
+				$('nav.navbar.bootsnav').removeClass('navbar-scrolled');
 			}
 		});
 		$('.return-to-top').on('click',function(){

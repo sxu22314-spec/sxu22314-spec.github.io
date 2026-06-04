@@ -113,16 +113,71 @@ html,body{
     z-index: 9999;
 }
 
-/* navbar base — black bg override */
+/*
+ * Navbar — two-state system
+ * State 1 (top of page): full-width, transparent, no decoration
+ * State 2 (scrolled): pill-shaped glassmorphism capsule
+ */
+
+/* --- Shared base — transparent, full-width, centered, ready to transition --- */
+nav.navbar.bootsnav,
 nav.navbar.bootsnav.no-background {
-    background-color: #000000 !important;
+    background: transparent;
     border: none;
+    box-shadow: none;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 0;
+    width: 100%;
+    border-radius: 0;
+    -webkit-transition:
+        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    -moz-transition:
+        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    -ms-transition:
+        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    -o-transition:
+        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-nav.navbar.bootsnav {
-    background-color: #000000 !important;
-    border-bottom: 1px solid #262626;
-    box-shadow: 0 3px 15px rgba(0,0,0,.5);
+/* --- Scrolled pill state --- */
+nav.navbar.bootsnav.navbar-scrolled {
+    width: 90%;
+    top: 16px;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* flex layout for nav container */
