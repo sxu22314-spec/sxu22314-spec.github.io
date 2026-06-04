@@ -122,8 +122,8 @@ html,body{
 /* --- Shared base — transparent, full-width, centered, ready to transition --- */
 nav.navbar.bootsnav,
 nav.navbar.bootsnav.no-background {
-    background: transparent;
-    border: none;
+    background: rgba(15, 15, 15, 0);
+    border: 1px solid rgba(255, 255, 255, 0);
     box-shadow: none;
     left: 0;
     right: 0;
@@ -132,46 +132,46 @@ nav.navbar.bootsnav.no-background {
     width: 100%;
     border-radius: 0;
     -webkit-transition:
-        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width         0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        top           0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border        0.4s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition:
-        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width         0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        top           0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border        0.4s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transition:
-        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width         0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        top           0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border        0.4s cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition:
-        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width         0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        top           0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border        0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transition:
-        width         0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        background    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        top           0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow    0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border        0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        width         0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        top           0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow    0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border        0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- Scrolled pill state --- */
 nav.navbar.bootsnav.navbar-scrolled {
-    width: 90%;
-    top: 16px;
+    width: 60%;
+    top: 8px;
     background: rgba(15, 15, 15, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -180,11 +180,35 @@ nav.navbar.bootsnav.navbar-scrolled {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* scrolled — compress vertical thickness to ~70% */
+nav.navbar.bootsnav.navbar-scrolled .navbar-brand {
+    padding: 15px 0px 15px;
+}
+nav.navbar.bootsnav.navbar-scrolled ul.nav > li > a {
+    padding: 14px 16px;
+}
+
 /* flex layout for nav container */
 nav.navbar.bootsnav .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    /* 【新增】确保内容器最大宽度为 100%，否则内容无法跟随胶囊边缘收缩 */
+    max-width: 100% !important; 
+    
+    /* 【新增】初始状态下，让左右内容距离屏幕边缘有 4% 的呼吸空间（可根据喜好调整） */
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    /* 【新增】为内边距加入与外壳完全同步的丝滑过渡 */
+    -webkit-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav.navbar.bootsnav.navbar-scrolled .container {
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 /* Brand / Logo */
@@ -195,9 +219,14 @@ nav.navbar.bootsnav .container {
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 700;
-    padding: 33px 0px 57px;
+    padding: 38px 0px 57px;
     text-transform: uppercase;
     letter-spacing: -0.02em;
+    -webkit-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Nav links */
@@ -212,7 +241,13 @@ nav.navbar.bootsnav ul.nav > li > a {
     -o-transition: color 0.2s ease;
     transition: color 0.2s ease;
 }
-nav.navbar.bootsnav ul.nav > li > a {padding: 35px 16px;}
+nav.navbar.bootsnav ul.nav > li > a {padding: 35px 16px;
+    -webkit-transition: color 0.2s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: color 0.2s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: color 0.2s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: color 0.2s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.2s ease, padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 nav.navbar.bootsnav ul.nav > li > a:hover,
 nav.navbar.bootsnav ul.nav > li > a:focus,
 nav.navbar.bootsnav ul.nav > li.active>a{
