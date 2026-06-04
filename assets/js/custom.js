@@ -135,7 +135,7 @@ $(document).ready(function(){
 
 	// 6. Meteor Shower Engine (Layer 1 — Canvas)
 	(function initMeteorShower() {
-		var canvas = document.querySelector('.hero-canvas');
+		var canvas = document.querySelector('.starfield-canvas');
 		if (!canvas) return;
 
 		var ctx = canvas.getContext('2d');
@@ -152,7 +152,7 @@ $(document).ready(function(){
 		}
 
 		function resize() {
-			var rect = canvas.parentNode.getBoundingClientRect();
+			var rect = {width: window.innerWidth, height: window.innerHeight};
 			canvas.width  = rect.width;
 			canvas.height = rect.height;
 		}

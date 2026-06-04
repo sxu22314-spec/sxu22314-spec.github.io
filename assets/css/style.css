@@ -343,15 +343,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
 }
 
 /* Hero Canvas — Layer 1 meteor shower (above overlay, below text) */
-.hero-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    pointer-events: none;
-}
 
 /* Hero container — above canvas & overlay */
 .welcome-hero > .container {
@@ -377,7 +368,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
 
 /* header-text */
 .header-text h2 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 4.5rem;
     font-weight: 800;
     text-transform: uppercase;
