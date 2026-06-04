@@ -198,8 +198,8 @@ nav.navbar.bootsnav .container {
     max-width: 100% !important; 
     
     /* 【新增】初始状态下，让左右内容距离屏幕边缘有 4% 的呼吸空间（可根据喜好调整） */
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 32px;
+    padding-right: 32px;
     
     /* 【新增】为内边距加入与外壳完全同步的丝滑过渡 */
     -webkit-transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -207,8 +207,8 @@ nav.navbar.bootsnav .container {
 }
 
 nav.navbar.bootsnav.navbar-scrolled .container {
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 /* Brand / Logo */
