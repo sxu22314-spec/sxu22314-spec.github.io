@@ -325,9 +325,10 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
     align-items: center;
     justify-content: center;
     position:relative;
-    background:url(../images/about/welcome-banner.jpg)no-repeat;
+    /* background:url(../images/about/welcome-banner.jpg)no-repeat; */
     background-size:cover;
     background-position: center;
+    background-color: #000000;
     height:890px;
 }
 .welcome-hero:before{
@@ -335,9 +336,27 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
     content: " ";
     top:0;
     left:0;
-    background:rgba(0,0,0,.75);
+    background:none;
     width:100%;
     height:100%;
+    z-index:2;
+}
+
+/* Hero Canvas — Layer 1 meteor shower (above overlay, below text) */
+.hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Hero container — above canvas & overlay */
+.welcome-hero > .container {
+    position: relative;
+    z-index: 4;
 }
 
 /* Hero Badge */
