@@ -28,7 +28,7 @@ const size = getCanvasSize()
 const camera = new PerspectiveCamera(
   60, size.width / size.height, 0.1, 100
 )
-camera.position.set(0, 1.4, 4.8)
+camera.position.set(0, 1.8, 3.1)
 
 const renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true })
 renderer.setClearColor(0x000000, 0)
@@ -210,7 +210,7 @@ galaxy.material.onBeforeCompile = (shader) => {
     .replace("#include <random, scatter>", shaderUtils)
 }
 scene.add(galaxy)
-
+galaxy.position.set(0, 1, 0)
 
 // ------------------------ //
 // UNIVERSE
@@ -339,7 +339,7 @@ universe.material.onBeforeCompile = (shader) => {
     .replace("#include <random, scatter>", shaderUtils)
 }
 scene.add(universe)
-
+universe.position.set(0, 1, 0)
 
 
 const u = galaxyMaterial.uniforms
