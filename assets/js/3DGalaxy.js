@@ -251,8 +251,8 @@ void main() {
 
   // Planet self-rotation (counter-clockwise around Y)
   float pr = uPlanetRotation * morphT;
-  float cpr = cos(pr);
-  float spr = sin(pr);
+  float cpr = cos(-pr);
+  float spr = sin(-pr);
   vec3 rotatedTarget = vec3(
     aTargetPosition.x * cpr - aTargetPosition.z * spr,
     aTargetPosition.y,
@@ -562,10 +562,17 @@ new TWEEN.Tween({
 // LOOPER
 
 const t = 0.001
+const orbitR = 1.8
 renderer.setAnimationLoop(() => {
   galaxyMaterial.uniforms.uTime.value += t / 2
   universeMaterial.uniforms.uTime.value += t / 3
-  planetRotUniform.value += t * 0.35
+  planetRotUniform.value += t * 2
+  const orbit = morphUniform.value * orbitR
+  const phase = planetRotUniform.value * 0.8
+  galaxy.position.x = Math.cos(phase) * orbit
+  galaxy.position.z = Math.sin(phase) * orbit
+  universe.position.x = galaxy.position.x
+  universe.position.z = galaxy.position.z
   TWEEN.update()
   renderer.render(scene, camera)
 })
@@ -608,66 +615,103 @@ vec3 scatter (vec3 seed) {
 `
 
 // ------------------------ //
-// MAGIC BUTTON
+// NAV ARROWS
 
-const magicBtn = document.createElement('button')
-magicBtn.textContent = 'Magic ✦'
-magicBtn.className = 'magic-btn'
+const navContainer = document.createElement('div')
+navContainer.className = 'morph-nav'
 
-const btnStyle = document.createElement('style')
-btnStyle.textContent = `
-.magic-btn {
+const prevBtn = document.createElement('button')
+prevBtn.className = 'morph-arrow morph-prev'
+prevBtn.textContent = '◂'
+prevBtn.title = 'Back to Galaxy'
+
+const nextBtn = document.createElement('button')
+nextBtn.className = 'morph-arrow morph-next'
+nextBtn.textContent = '▸'
+nextBtn.title = 'Transform to Planet'
+
+navContainer.appendChild(prevBtn)
+navContainer.appendChild(nextBtn)
+
+const arrowStyle = document.createElement('style')
+arrowStyle.textContent = `
+#welcome-hero { position: relative; }
+.morph-nav {
   display: none;
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 32px;
-  font-size: 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 4vw;
   opacity: 0;
-  position: relative;
   z-index: 10;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: none;
 }
-.magic-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+.morph-arrow {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
-.magic-btn:active {
-  transform: translateY(0);
+.morph-arrow:hover {
+  transform: scale(1.1);
+}
+.morph-arrow:active {
+  transform: scale(0.95);
+}
+.morph-arrow.dim {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.25);
+  cursor: default;
+  pointer-events: none;
 }
 `
-document.head.appendChild(btnStyle)
+document.head.appendChild(arrowStyle)
 
-const headerText = document.querySelector('.header-text')
-if (headerText) headerText.appendChild(magicBtn)
+const welcomeHero = document.querySelector('#welcome-hero')
+if (welcomeHero) welcomeHero.appendChild(navContainer)
 
-// Show button after initial galaxy unfold animation
+// Show arrows after initial galaxy unfold animation
 setTimeout(() => {
-  magicBtn.style.display = 'inline-block'
+  navContainer.style.display = 'flex'
   new TWEEN.Tween({ o: 0 })
     .to({ o: 1 }, 600)
     .easing(TWEEN.Easing.Cubic.Out)
-    .onUpdate(({ o }) => { magicBtn.style.opacity = o })
+    .onUpdate(({ o }) => { navContainer.style.opacity = o })
     .start()
+  updateArrowState()
 }, 3200)
 
-let isMorphed = false
+function updateArrowState() {
+  const mt = morphUniform.value
+  prevBtn.classList.toggle('dim', mt <= 0.01)
+  nextBtn.classList.toggle('dim', mt >= 0.99)
+}
 
-magicBtn.addEventListener('click', () => {
-  const target = isMorphed ? 0 : 1
+function morphTo(target) {
   const start = morphUniform.value
-
   new TWEEN.Tween({ p: start })
     .to({ p: target }, 2200)
     .easing(TWEEN.Easing.Cubic.InOut)
     .onUpdate(({ p }) => { morphUniform.value = p })
+    .onComplete(() => updateArrowState())
     .start()
+}
 
-  isMorphed = !isMorphed
-  magicBtn.textContent = isMorphed ? 'Return ✦' : 'Magic ✦'
+prevBtn.addEventListener('click', () => {
+  if (morphUniform.value > 0.01) morphTo(0)
+})
+nextBtn.addEventListener('click', () => {
+  if (morphUniform.value < 0.99) morphTo(1)
 })
