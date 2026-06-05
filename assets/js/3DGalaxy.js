@@ -671,7 +671,6 @@ arrowStyle.textContent = `
   transform: scale(0.95);
 }
 .morph-arrow.dim {
-  background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.25);
   cursor: default;
   pointer-events: none;
