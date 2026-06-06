@@ -95,7 +95,7 @@ galaxyGeometry.setAttribute(
 // ------------------------ //
 // PLANET TARGET (for galaxy→planet morph)
 
-const planetRadius = 1.0
+const planetRadius = 0.6
 
 const galaxyTargetPosition = new Float32Array(count * 3)
 const galaxyTargetColor = new Float32Array(count * 3)
@@ -103,11 +103,11 @@ const galaxyTargetColor = new Float32Array(count * 3)
 // Procedural continent noise on a sphere
 function continentNoise(theta, phi) {
   return (
-    Math.sin(theta * 1.5 + 0.3) * Math.cos(phi * 2.0 + 1.7) * 0.40 +
-    Math.sin(theta * 3.7 + 2.1) * Math.cos(phi * 2.3 + 4.2) * 0.25 +
-    Math.sin(theta * 7.2 + 5.3) * Math.sin(phi * 5.1 + 3.9) * 0.15 +
-    Math.cos(theta * 11.0 - phi * 8.0 + 1.1) * 0.10 +
-    Math.sin((theta + phi) * 4.3 + 6.7) * 0.10
+    Math.sin(theta * 1.5 + 0.3) * Math.cos(phi * 2.0 + 1.7) * 0.30 +
+    Math.sin(theta * 3.7 + 2.1) * Math.cos(phi * 2.3 + 4.2) * 0.10 +
+    Math.sin(theta * 7.2 + 5.3) * Math.sin(phi * 5.1 + 3.9) * 0.30 +
+    Math.cos(theta * 11.0 - phi * 8.0 + 1.1) * 0.15 +
+    Math.sin((theta + phi) * 4.3 + 6.7) * 0.15
   )
 }
 const coastlineThreshold = 0.0
@@ -357,10 +357,10 @@ universeGeometry.setAttribute(
 const uniCount = count / 2
 const universeTargetPosition = new Float32Array(uniCount * 3)
 const universeTargetColor = new Float32Array(uniCount * 3)
-const ringInner = 1.08
-const ringOuter = 1.35
+const ringInner = 0.6
+const ringOuter = 0.9
 const ringTilt = 0.5
-const ringThickness = 0.12
+const ringThickness = 0.04
 
 for (let i = 0; i < uniCount; i++) {
   const u = universeSeed[i * 3]
@@ -481,7 +481,7 @@ void main() {
   l = (2.0 - l) * (2.0 - l);
 
   float uniPtSize = (r * size * uSize * l) / -mvp.z;
-  float ringPtSize = (8.0 * uSize) / -mvp.z;
+  float ringPtSize = (10.0 * uSize) / -mvp.z;
   gl_PointSize = mix(uniPtSize, ringPtSize, morphT);
 }
 `,
