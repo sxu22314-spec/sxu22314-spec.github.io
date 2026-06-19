@@ -330,6 +330,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
     background-position: center;
     background-color: #000000;
     height:750px;
+    /* min-height: 100vh;
+    min-height: 100dvh; */
 }
 .welcome-hero:before{
     position:absolute;
@@ -360,6 +362,23 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
     position: relative;
     z-index: 4;
 }
+
+/* Full-viewport sections — each fills at least one screen on any display
+.about,
+.education,
+.skills,
+.experience,
+.profiles,
+.portfolio,
+.clients,
+.contact {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+} */
 
 /* Hero Badge */
 .hero-badge {
