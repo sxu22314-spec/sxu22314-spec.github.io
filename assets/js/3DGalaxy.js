@@ -714,3 +714,19 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
   if (morphUniform.value < 0.99) morphTo(1)
 })
+
+// ------------------------ //
+// SCROLL FADE — galaxy canvas fades out as hero leaves viewport
+// ------------------------ //
+const heroEl = document.getElementById('welcome-hero')
+const galaxyCanvasEl = document.querySelector('.galaxy-canvas')
+
+if (heroEl && galaxyCanvasEl) {
+  const thresholds = [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1]
+  const observer = new IntersectionObserver(([entry]) => {
+    // hero 完全可见 → opacity 1，完全不可见 → opacity 0
+    // *2 让 fade 在 hero 离开 50% 时就开始
+    galaxyCanvasEl.style.opacity = Math.max(0, Math.min(1, entry.intersectionRatio * 2))
+  }, { threshold: thresholds })
+  observer.observe(heroEl)
+}

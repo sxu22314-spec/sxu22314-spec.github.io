@@ -344,14 +344,15 @@ nav.navbar.bootsnav .navbar-toggle i{color: #FFFFFF;}
 }
 
 .galaxy-canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3;
+    z-index: 2;
     display: block;
     pointer-events: none;
+    opacity: 1;
 }
 
 /* Hero container — above canvas & overlay */
