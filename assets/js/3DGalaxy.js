@@ -726,7 +726,8 @@ if (heroEl && galaxyCanvasEl) {
   const observer = new IntersectionObserver(([entry]) => {
     // hero 完全可见 → opacity 1，完全不可见 → opacity 0
     // *2 让 fade 在 hero 离开 50% 时就开始
-    galaxyCanvasEl.style.opacity = Math.max(0, Math.min(1, entry.intersectionRatio * 2))
+    const r = entry.intersectionRatio
+    galaxyCanvasEl.style.opacity = r < 0.7 ? 0 : (r - 0.7) / 0.3
   }, { threshold: thresholds })
   observer.observe(heroEl)
 }
